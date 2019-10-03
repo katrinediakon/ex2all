@@ -22,7 +22,7 @@ $this->setFrameMode(true);
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 	?>
-	<?if($APPLICATION->GetProperty("SPECIALDATE")==100) {
+	<?if($APPLICATION->GetProperty("SPECIALDATE")==100&& $arProperty["CANONICAL"]="Y") {
 		$APPLICATION->SetPageProperty("SPECIALDATE", $arItem["DISPLAY_ACTIVE_FROM"]);}?>
 	<p class="news-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>

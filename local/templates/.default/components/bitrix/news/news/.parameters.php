@@ -2,6 +2,11 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arTemplateParameters = array(
+	"CANONICAL" => Array(
+		"NAME" => "ID информационного блока для rel=canonical",
+		"TYPE" => "STRING",
+		"DEFAULT" => "5",
+	),
 	"DISPLAY_DATE" => Array(
 		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_DATE"),
 		"TYPE" => "CHECKBOX",
@@ -30,6 +35,7 @@ $arTemplateParameters = array(
 		"TYPE" => "CHECKBOX",
 		"DEFAULT" => "Y",
 	),
+
 );
 
 if ($arCurrentValues["USE_SHARE"] == "Y")
@@ -66,6 +72,7 @@ if ($arCurrentValues["USE_SHARE"] == "Y")
 		"VALUES" => $arHandlers["HANDLERS"],
 		"DEFAULT" => $arHandlers["HANDLERS_DEFAULT"],
 	);
+
 
 	$arTemplateParameters["SHARE_SHORTEN_URL_LOGIN"] = array(
 		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_SHARE_SHORTEN_URL_LOGIN"),

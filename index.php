@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("CANONICAL", "http://test.ru/test/");
 $APPLICATION->SetPageProperty("specialdate", "100");
 $APPLICATION->SetTitle("Мебельная компания");
 ?><p>
