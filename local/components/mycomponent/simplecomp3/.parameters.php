@@ -2,16 +2,16 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $arComponentParameters = array(
 	"PARAMETERS" => array(
-		"KATALOG" => array(
-			"NAME" => "ID инфоблока с каталогом товаров",
+		"NEWS" => array(
+			"NAME" => "ID информационного блока с новостями",
 			"TYPE" => "STRING",
 		),
-			"KLASS" => array(
-				"NAME" => "ID инфоблока с классификатором",
+			"AVTOR" => array(
+				"NAME" => "Код свойства информационного блока",
 				"TYPE" => "STRING",
 			),
 				"KOD" => array(
-					"NAME" => "Код пользовательского свойства разделов каталога",
+					"NAME" => "Код пользовательского свойства пользователей",
 					"TYPE" => "STRING",
 				),
 		"CACHE_TIME"  =>  Array("DEFAULT"=>36000000),
