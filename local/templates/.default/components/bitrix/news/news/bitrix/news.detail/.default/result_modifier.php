@@ -19,4 +19,7 @@ while($ob = $res->GetNext())
   $APPLICATION->SetDirProperty("canonical", $ob["NAME"]);
 }
 
+
+
+
 ?>
