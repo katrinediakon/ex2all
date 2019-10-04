@@ -6,6 +6,10 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/include/function.ph
 if(file_exists($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/include/email.php"))
 require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/include/email.php");
 
+if(file_exists($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/include/menu.php"))
+require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/include/menu.php");
 
+if(file_exists($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/include/error.php"))
+require_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/include/error.php");
 
  ?>
