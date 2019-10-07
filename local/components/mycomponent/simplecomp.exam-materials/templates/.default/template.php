@@ -10,8 +10,15 @@
 )</p>
 <?foreach ($value["KATALOG"] as $key => $section):?>
 <?foreach ($section["VALUE"] as $key => $katalog):?>
+
+<?$this->AddEditAction($katalog['ID'], $katalog['EDIT_LINK'], CIBlock::GetArrayByID($arParams["KATALOG"], "ELEMENT_EDIT"));
+$this->AddDeleteAction($katalog['ID'], $katalog['DELETE_LINK'], CIBlock::GetArrayByID($arParams["KATALOG"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+?>
+<div  id="<?=$this->GetEditAreaId($katalog['ID']);?>">
 <p><?=$katalog["NAME"]?> - <?=$katalog["PRICE"]?> - <?=$katalog["MATERIAL"]?> - <?=$katalog["ARTNUMBER"]?></p>
+</div>
 <?endforeach?>
+
 <?endforeach?>
 
 <?endforeach?>

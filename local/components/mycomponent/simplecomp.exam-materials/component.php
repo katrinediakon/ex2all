@@ -66,7 +66,16 @@ use Bitrix\Main\Loader,
 							{
 								if(isset($arResult[$key2]["KATALOG"][$value]))
 								{
+									$arButtons = CIBlock::GetPanelButtons(
+										$arParams["KATALOG"],
+										$ob["ID"],
+										0,
+										array("SECTION_BUTTONS"=>false, "SESSID"=>false)
+									);
+									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
 									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["NAME"]=$ob["NAME"];
+									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["ID"]=$ob["ID"];
 									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["PRICE"]=$ob["PROPERTY_PRICE_VALUE"];
 									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["MATERIAL"]=$ob["PROPERTY_MATERIAL_VALUE"];
 									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["ARTNUMBER"]=$ob["PROPERTY_ARTNUMBER_VALUE"];
@@ -74,9 +83,6 @@ use Bitrix\Main\Loader,
 						}
 						}
 				}
-
-
-
 				$this->includeComponentTemplate();
 		}
 	}
