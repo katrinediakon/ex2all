@@ -15,13 +15,15 @@ use Bitrix\Main\Loader,
 
  echo "<a href='/ex2/simplecomp1.php/?F=Y'>/ex2/simplecomp1.php/?F=Y</a>";
  $f=$APPLICATION->GetCurPageParam();
+ global $CACHE_MANAGER;
 
 	if($arParams["NEWS"]!=""&& $arParams["KATALOG"]!="")
-			{
-
+		{
+				$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["KATALOG"]);
+				$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["NEWS"]);
 		if ($this->StartResultCache())
 				{
-
+					echo(time());
 				if(!Loader::includeModule("iblock"))
 				{
 					ShowError(GetMessage("SIMPLECOMP_EXAM2_IBLOCK_MODULE_NONE"));
