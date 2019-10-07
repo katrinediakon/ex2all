@@ -3,6 +3,16 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Loader,
 	Bitrix\Iblock;
+
+	$this->AddIncludeAreaIcon(
+	    array(
+
+	        'URL'   => '/bitrix/admin/iblock_element_admin.php?IBLOCK_ID=1&type=news&lang=ru&apply_filter=Y&back_url_pub=%2F',
+	        'TITLE' => "ИБ в админке",
+					"IN_PARAMS_MENU" => true, //показать в контекстном меню
+	    )
+	);
+
  echo "<a href='/ex2/simplecomp1.php/?F=Y'>/ex2/simplecomp1.php/?F=Y</a>";
  $f=$APPLICATION->GetCurPageParam();
 
