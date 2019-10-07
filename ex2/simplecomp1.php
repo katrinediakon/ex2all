@@ -18,7 +18,8 @@ $APPLICATION->SetTitle("Простой компонент 1");
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"KATALOG" => "2",
 		"NEWS" => "1",
-		"KOD" => "UF_NEWS_LINK"
+		"KOD" => "UF_NEWS_LINK",
+		"NEWS_COUNT" => "2"
 	),
 	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

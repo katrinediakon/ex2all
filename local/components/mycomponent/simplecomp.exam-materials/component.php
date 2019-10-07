@@ -13,17 +13,27 @@ use Bitrix\Main\Loader,
 	    )
 	);
 
- echo "<a href='/ex2/simplecomp1.php/?F=Y'>/ex2/simplecomp1.php/?F=Y</a>";
+$arParams["NEWS_COUNT"] = intval($arParams["NEWS_COUNT"]);
+if($arParams["NEWS_COUNT"]<=0)
+	$arParams["NEWS_COUNT"] = 20;
+ echo "<a href='/ex2/simplecomp1.php/?F=Y'>/ex2/simplecomp1.php/?F=Y</a> </br>";
  $f=$APPLICATION->GetCurPageParam();
+ $arNavParams = array(
+				 "nPageSize" => '2',
+				 "bDescPageNumbering" => 'Описание',
+				 "bShowAll" => 'Y',
+		 );
+		 	$arNavigation = CDBResult::GetNavParams($arNavParams);
  global $CACHE_MANAGER;
 
 	if($arParams["NEWS"]!=""&& $arParams["KATALOG"]!="")
 		{
 				$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["KATALOG"]);
 				$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["NEWS"]);
-		if ($this->StartResultCache())
+		if ($this->StartResultCache(false, $arNavigation))
 				{
 					echo(time());
+
 				if(!Loader::includeModule("iblock"))
 				{
 					ShowError(GetMessage("SIMPLECOMP_EXAM2_IBLOCK_MODULE_NONE"));
@@ -33,7 +43,8 @@ use Bitrix\Main\Loader,
 				$arResult=array();
 				$arSelect = Array("ID", "NAME", "DATE_ACTIVE_FROM");
 				$arFilter = Array("IBLOCK_ID"=>$arParams["NEWS"], "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
-				$res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>50), $arSelect);
+				$res = CIBlockElement::GetList(Array(), $arFilter, false, $arNavParams, $arSelect);
+				$arResult["NAV_STRING"] =  $res->GetPageNavStringEx($navComponentObject, 'Заголовок', '', 'Y');
 				while($ob = $res->GetNext())
 				{
 				 $arResult[$ob["ID"]]["NAME"]=$ob["NAME"];
@@ -95,6 +106,7 @@ use Bitrix\Main\Loader,
 						}
 						}
 				}
+
 				$this->includeComponentTemplate();
 		}
 	}

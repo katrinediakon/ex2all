@@ -1,6 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <p><b><?=GetMessage("SIMPLECOMP_EXAM2_CAT_TITLE")?></b></p>
 <?$min=10000;$max=0?>
+
+	<?=$arResult["NAV_STRING"]?><br />
+
 <?foreach ($arResult as $key => $value):?>
 <p><?=$value["NAME"]?> -
 <?=$value["DATE_ACTIVE_FROM"]?>(
@@ -27,4 +30,7 @@ $this->AddDeleteAction($katalog['ID'], $katalog['DELETE_LINK'], CIBlock::GetArra
 <?endforeach?>
 
 <?endforeach?>
+
+	<br /><?=$arResult["NAV_STRING"]?>
+
 <?$APPLICATION->SetPageProperty("PRICE", '<div style="color:red; margin: 34px 15px 35px 15px">Минимальная цена:'.$min.' Максимальная цена: '.$max.'</div>');?>
