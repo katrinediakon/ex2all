@@ -7,7 +7,7 @@
 <li><?=$value["NAME"]?></li>
 <ul>
 <?foreach ($value["KATALOG"] as $key => $katalog):?>
-<li> <?=$katalog["NAME"]?> - <?=$katalog["PRICE"]?> - <?=$katalog["MATERIAL"]?> </li>
+<li> <?=$katalog["NAME"]?> - <?=$katalog["PRICE"]?> - <?=$katalog["MATERIAL"]?> (<?=$katalog["DETAIL"]?>) </li>
 <?endforeach?>
 
 </ul>

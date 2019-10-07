@@ -3,7 +3,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Loader,
 	Bitrix\Iblock;
-	print_r($arParams);
+
 	if($arParams["NEWS"]!=""&& $arParams["KATALOG"]!="")
 			{
 		if ($this->StartResultCache())
@@ -37,7 +37,6 @@ use Bitrix\Main\Loader,
 					}
 					 $temporary[]=$arSection["ID"];
 				}
-				//print_r($arResult);
 				foreach ($temporary as $key1 => $value) {
 
 						$arSelect = Array("ID", "NAME", "PROPERTY_PRICE", "PROPERTY_MATERIAL", "PROPERTY_ARTNUMBER");
