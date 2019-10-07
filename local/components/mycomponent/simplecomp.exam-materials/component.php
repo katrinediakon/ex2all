@@ -3,11 +3,15 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Loader,
 	Bitrix\Iblock;
+ echo "<a href='/ex2/simplecomp1.php/?F=Y'>/ex2/simplecomp1.php/?F=Y</a>";
+ $f=$APPLICATION->GetCurPageParam();
 
 	if($arParams["NEWS"]!=""&& $arParams["KATALOG"]!="")
 			{
+
 		if ($this->StartResultCache())
 				{
+
 				if(!Loader::includeModule("iblock"))
 				{
 					ShowError(GetMessage("SIMPLECOMP_EXAM2_IBLOCK_MODULE_NONE"));
@@ -37,10 +41,24 @@ use Bitrix\Main\Loader,
 					}
 					 $temporary[]=$arSection["ID"];
 				}
+
 				foreach ($temporary as $key1 => $value) {
 
 						$arSelect = Array("ID", "NAME", "PROPERTY_PRICE", "PROPERTY_MATERIAL", "PROPERTY_ARTNUMBER");
-						$arFilter = Array("IBLOCK_ID"=>$arParams["KATALOG"],"IBLOCK_SECTION_ID"=>$value, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
+						if(!strstr($f, 'F=Y'))
+						{
+								$arFilter = Array("IBLOCK_ID"=>$arParams["KATALOG"],"IBLOCK_SECTION_ID"=>$value, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y");
+						}
+						else
+						{
+								$this->AbortResultCache();
+								$arFilter = Array("IBLOCK_ID"=>$arParams["KATALOG"],"IBLOCK_SECTION_ID"=>$value, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y","INCLUDE_SUBSECTIONS" => "Y",
+								array(
+						        "LOGIC" => "OR",
+						        array("<=PROPERTY_PRICE" => 1700, "=PROPERTY_MATERIAL" => "Дерево, ткань"),
+						        array("<PROPERTY_PRICE" => 1500, "=PROPERTY_MATERIAL" => "Металл, пластик"),
+    								),);
+						}
 						$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 						while($ob = $res->GetNext())
 						{
@@ -56,6 +74,9 @@ use Bitrix\Main\Loader,
 						}
 						}
 				}
+
+
+
 				$this->includeComponentTemplate();
 		}
 	}
