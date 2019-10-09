@@ -82,6 +82,8 @@ if($arParams["NEWS_COUNT"]<=0)
 						        array("<PROPERTY_PRICE" => 1500, "=PROPERTY_MATERIAL" => "Металл, пластик"),
     								),);
 						}
+						$arResult["MAX"]=0;
+						$arResult["MIN"]=100000;
 						$res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 						while($ob = $res->GetNext())
 						{
@@ -95,6 +97,12 @@ if($arParams["NEWS_COUNT"]<=0)
 										0,
 										array("SECTION_BUTTONS"=>false, "SESSID"=>false)
 									);
+									if($arResult["MAX"]<$ob["PROPERTY_PRICE_VALUE"])
+											$arResult["MAX"]=$ob["PROPERTY_PRICE_VALUE"];
+										if($arResult["MIN"]>$ob["PROPERTY_PRICE_VALUE"])
+												$arResult["MIN"]=$ob["PROPERTY_PRICE_VALUE"];
+
+
 									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
 									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
 									$arResult[$key2]["KATALOG"][$value]["VALUE"][$ob["ID"]]["NAME"]=$ob["NAME"];
@@ -106,8 +114,9 @@ if($arParams["NEWS_COUNT"]<=0)
 						}
 						}
 				}
-
+				$this->SetResultCacheKeys(array("MAX", "MIN"));
 				$this->includeComponentTemplate();
 		}
 	}
+
 ?>

@@ -18,11 +18,7 @@
 $this->AddDeleteAction($katalog['ID'], $katalog['DELETE_LINK'], CIBlock::GetArrayByID($arParams["KATALOG"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 ?>
 <div  id="<?=$this->GetEditAreaId($katalog['ID']);?>">
-  <?if($max<$katalog["PRICE"])
-      $max=$katalog["PRICE"];
-    if($min>$katalog["PRICE"])
-        $min=$katalog["PRICE"];
-      ?>
+
 <p><?=$katalog["NAME"]?> - <?=$katalog["PRICE"]?> - <?=$katalog["MATERIAL"]?> - <?=$katalog["ARTNUMBER"]?></p>
 </div>
 <?endforeach?>
@@ -32,5 +28,3 @@ $this->AddDeleteAction($katalog['ID'], $katalog['DELETE_LINK'], CIBlock::GetArra
 <?endforeach?>
 
 	<br /><?=$arResult["NAV_STRING"]?>
-
-<?$APPLICATION->SetPageProperty("PRICE", '<div style="color:red; margin: 34px 15px 35px 15px">Минимальная цена:'.$min.' Максимальная цена: '.$max.'</div>');?>
