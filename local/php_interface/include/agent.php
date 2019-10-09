@@ -25,7 +25,7 @@ function AgentChekUsers()
 
 	 		while($arItemCat = $rsUsers->GetNext())
 	 		{
-	 			print_r($arItemCat);
+	 			$arItems[]=$arItemCat;
 	 		}
 			COption::SetOptionString("main","date",date(H,i,s,d,m,Y));
 		$arItems = array();
@@ -58,4 +58,3 @@ function AgentChekUsers()
 
 	return "AgentChekUsers();";
 }
-?>

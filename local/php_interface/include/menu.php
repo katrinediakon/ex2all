@@ -23,5 +23,3 @@ function MyOnBuildGlobalMenu(&$aGlobalMenu, &$aModuleMenu)
   }
 
 }
-
- ?>
