@@ -20,6 +20,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Оценка производительности", 
+		"/ex2/otsenka-proizvoditelnosti.php", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>
