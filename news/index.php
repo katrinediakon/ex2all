@@ -85,6 +85,8 @@ $APPLICATION->SetTitle("Новости");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"CANONICAL" => "5",
+		"AJAX" => "Y",
+		"AJAX_MODEL" => "N",
 		"VARIABLE_ALIASES" => array(
 			"SECTION_ID" => "SECTION_ID",
 			"ELEMENT_ID" => "ELEMENT_ID",

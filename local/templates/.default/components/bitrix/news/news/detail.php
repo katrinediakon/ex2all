@@ -16,6 +16,8 @@ $this->setFrameMode(true);
 	"bitrix:news.detail",
 	"",
 	Array(
+		"AJAX_MODEL" => $arParams["AJAX_MODEL"],
+		"COMPLAINT" => $_POST["COMPLAINT"],
 		"DISPLAY_DATE" => $arParams["DISPLAY_DATE"],
 		"DISPLAY_NAME" => $arParams["DISPLAY_NAME"],
 		"DISPLAY_PICTURE" => $arParams["DISPLAY_PICTURE"],
