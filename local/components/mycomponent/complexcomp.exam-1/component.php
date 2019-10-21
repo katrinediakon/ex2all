@@ -133,5 +133,6 @@ else
 		"ALIASES" => $arVariableAliases
 	);
 }
+
 $this->IncludeComponentTemplate($componentPage);
 ?>
