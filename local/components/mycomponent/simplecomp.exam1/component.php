@@ -16,7 +16,7 @@ use Bitrix\Main\Loader,
 $arParams["NEWS_COUNT"] = intval($arParams["NEWS_COUNT"]);
 if($arParams["NEWS_COUNT"]<=0)
 	$arParams["NEWS_COUNT"] = 20;
- echo "<a href='/ex2/simplecomp1.php/?F=Y'>/ex2/simplecomp1.php/?F=Y</a> </br>";
+ echo "<a href='/ex2/simplecomp/simplecomp1.php?F=Y'>/ex2/simplecomp/simplecomp1.php?F=Y</a> </br>";
  $f=$APPLICATION->GetCurPageParam();
  $arNavParams = array(
 				 "nPageSize" => '2',
@@ -30,7 +30,7 @@ if($arParams["NEWS_COUNT"]<=0)
 		{
 				$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["KATALOG"]);
 				$CACHE_MANAGER->RegisterTag("iblock_id_".$arParams["NEWS"]);
-		if ($this->StartResultCache(false, $arNavigation))
+		if ($this->StartResultCache(false, array($arNavigation,$_GET["F"])))
 				{
 					echo(time());
 
@@ -67,7 +67,7 @@ if($arParams["NEWS_COUNT"]<=0)
 					 $temporary[]=$arSection["ID"];
 				}
 
-				$count=0;
+				$arResult["COUNT"]=0;
 				foreach ($temporary as $key1 => $value) {
 
 						$arSelect = Array("ID", "NAME", "PROPERTY_PRICE", "PROPERTY_MATERIAL", "PROPERTY_ARTNUMBER");
@@ -101,7 +101,7 @@ if($arParams["NEWS_COUNT"]<=0)
 										0,
 										array("SECTION_BUTTONS"=>false, "SESSID"=>false)
 									);
-									$count++;
+									$arResult["COUNT"]++;
 									if($arResult["MAX"]<$ob["PROPERTY_PRICE_VALUE"])
 											$arResult["MAX"]=$ob["PROPERTY_PRICE_VALUE"];
 									if($arResult["MIN"]>$ob["PROPERTY_PRICE_VALUE"])
@@ -119,10 +119,11 @@ if($arParams["NEWS_COUNT"]<=0)
 						}
 						}
 				}
-				$this->SetResultCacheKeys(array("MAX", "MIN"));
-				$APPLICATION->SetTitle("Элементов - ".$count);
+				$this->SetResultCacheKeys(array("MAX", "MIN", "COUNT"));
+
 				$this->includeComponentTemplate();
 		}
+		$APPLICATION->SetTitle("Элементов - ".$arResult["COUNT"]);
 	}
 
 ?>

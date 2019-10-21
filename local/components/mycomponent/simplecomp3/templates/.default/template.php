@@ -2,7 +2,7 @@
 <p><b><?=GetMessage("SIMPLECOMP_EXAM2_CAT_TITLE")?></b></p>
 
 
-<?php foreach ($arResult as $key => $value): ?>
+<?php foreach ($arResult["ITEM"] as $key => $value): ?>
 
   <p>[<?=$value["ID"]?>] - <?=$value["NAME"]?></p>
   <ul>

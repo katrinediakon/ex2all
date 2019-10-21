@@ -11,12 +11,12 @@ if(!Loader::includeModule("iblock"))
 }
 
 
-$count=0;
+$arResult["COUNT"]=0;
 if(intval($arParams["NEWS"]) > 0)
 {
 			if($USER->GetID())
 			{
-				if ($this->StartResultCache())
+				if ($this->StartResultCache(false,  $USER->GetID()))
 				{
 						$arResult= array();
 						// user
@@ -34,8 +34,8 @@ if(intval($arParams["NEWS"]) > 0)
 						while ($arUser = $rsUsers->GetNext()) {
 							if($arUser["ID"]!=$USER->GetID())
 							{
-									$arResult[$arUser["ID"]]["ID"]=$arUser["ID"];
-								  $arResult[$arUser["ID"]]["NAME"]=$arUser["LOGIN"];
+									$arResult["ITEM"][$arUser["ID"]]["ID"]=$arUser["ID"];
+								  $arResult["ITEM"][$arUser["ID"]]["NAME"]=$arUser["LOGIN"];
 							}
 							$user[]=$arUser["ID"];
 					}
@@ -58,14 +58,16 @@ if(intval($arParams["NEWS"]) > 0)
 								if(!in_array($USER->GetID(),$value["PROPERTY_NEWS"]) )
 								{
 									foreach ($value["PROPERTY_NEWS"] as $key => $news) {
-										$arResult[$news]["NEWS"][]=$value["NAME"];
-										$count++;
+										$arResult["ITEM"][$news]["NEWS"][]=$value["NAME"];
+										$arResult["COUNT"]++;
 									}
 								}
 						}
+						$this->SetResultCacheKeys("COUNT");
 						$APPLICATION->SetTitle("Новостей ".$count);
 						$this->includeComponentTemplate();
 				}
+				$APPLICATION->SetTitle("Новостей ".$arResult["COUNT"]);
 		}
 }
 
