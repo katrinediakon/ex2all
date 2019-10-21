@@ -13,15 +13,15 @@ $arSortFields = array(
 $arComponentParameters = array(
 	"PARAMETERS" => array(
 		"KATALOG" => array(
-			"NAME" => "ID инфоблока с каталогом товаров",
+			"NAME" =>  GetMessage("KATALOG"),
 			"TYPE" => "STRING",
 		),
 			"KLASS" => array(
-				"NAME" => "ID инфоблока с классификатором",
+				"NAME" =>  GetMessage("KLASS"),
 				"TYPE" => "STRING",
 			),
 				"KOD" => array(
-					"NAME" => "Код пользовательского свойства разделов каталога",
+					"NAME" => GetMessage("KOD"),
 					"TYPE" => "STRING",
 				),
 		"CACHE_TIME"  =>  Array("DEFAULT"=>36000000),

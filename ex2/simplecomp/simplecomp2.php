@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Простой компонент 2");
 		"DETAIL" => "catalog_exam/#SECTION_ID#/#ELEMENT_CODE#",
 		"KATALOG" => "2",
 		"KLASS" => "7",
-		"KOD" => "",
+		"KOD" => "FABRICK",
 		"SORT_BY1" => "ID",
 		"SORT_BY2" => "TIMESTAMP_X",
 		"SORT_ORDER1" => "DESC",

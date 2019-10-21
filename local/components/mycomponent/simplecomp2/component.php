@@ -25,8 +25,8 @@ if ($this->StartResultCache())
 						$arr[]=$ob["ID"];
 				}
 
-				$arSelect = Array("ID", "NAME", "DATE_ACTIVE_FROM","PROPERTY_FABRICK", "PROPERTY_PRICE", "PROPERTY_MATERIAL", "IBLOCK_SECTION_ID" );
-				$arFilter = Array("IBLOCK_ID"=>$arParams["LATALOG"], "PROPERTY_FABRICK"=>$arr, "ACTIVE"=>"Y");
+				$arSelect = Array("ID", "NAME", "DATE_ACTIVE_FROM","PROPERTY_".$arParams['KOD'], "PROPERTY_PRICE", "PROPERTY_MATERIAL", "IBLOCK_SECTION_ID" );
+				$arFilter = Array("IBLOCK_ID"=>$arParams["KATALOG"], "PROPERTY_".$arParams['KOD']=>$arr, "ACTIVE"=>"Y");
 				$res = CIBlockElement::GetList(Array($arParams["SORT_BY1"]=>$arParams["SORT_ORDER1"], $arParams["SORT_BY2"]=>$arParams["SORT_ORDER2"]), $arFilter, false, Array("nPageSize"=>50), $arSelect);
 				while($ob = $res->GetNext())
 				{
