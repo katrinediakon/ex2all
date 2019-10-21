@@ -10,7 +10,6 @@ if(!Loader::includeModule("iblock"))
 	return;
 }
 
-
 $arSelect = Array("NAME", "PROPERTY_NEWS");
 $arFilter = Array("IBLOCK_ID"=>$arParams["CANONICAL"], "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y", "PROPERTY_NEWS"=>$arResult["ID"]);
 $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>50), $arSelect);

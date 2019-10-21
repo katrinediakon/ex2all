@@ -18,6 +18,7 @@ $this->setFrameMode(true);
 	Array(
 		"AJAX_MODEL" => $arParams["AJAX_MODEL"],
 		"COMPLAINT" => $_POST["COMPLAINT"],
+		"CANONICAL" => $arParams["CANONICAL"],
 		"DISPLAY_DATE" => $arParams["DISPLAY_DATE"],
 		"DISPLAY_NAME" => $arParams["DISPLAY_NAME"],
 		"DISPLAY_PICTURE" => $arParams["DISPLAY_PICTURE"],
