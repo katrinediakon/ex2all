@@ -57,6 +57,7 @@ $this->setFrameMode(true);
 	"",
 	Array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+		"SPECIALDATE" => $arParams["SPECIALDATE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 		"NEWS_COUNT" => $arParams["NEWS_COUNT"],
 		"SORT_BY1" => $arParams["SORT_BY1"],

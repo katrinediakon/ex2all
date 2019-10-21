@@ -22,5 +22,10 @@ $arTemplateParameters = array(
 		"TYPE" => "CHECKBOX",
 		"DEFAULT" => "Y",
 	),
+	"SPECIALDATE" => Array(
+		"NAME" => "Установить свойство страницы specialdate",
+		"TYPE" => "CHECKBOX",
+		"DEFAULT" => "Y",
+	),
 );
 ?>
