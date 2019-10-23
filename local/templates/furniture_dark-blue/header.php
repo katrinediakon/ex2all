@@ -155,7 +155,7 @@ $APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
 ?>
 					</div>
 				</div>
-				<?$APPLICATION->ShowProperty("PRICE") ?>
+                <?$APPLICATION->ShowViewContent('PRICE');?>
 				<div class="information-block">
 					<div class="top"></div>
 					<div class="information-block-inner">
