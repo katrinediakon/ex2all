@@ -1,13 +1,6 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Комплексный компонент 1", 
-		"/ex2/complexcomponent-1.php", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Второй сайт", 
 		"/ex2/site2/index.php", 
 		Array(), 
@@ -31,6 +24,13 @@ $aMenuLinks = Array(
 	Array(
 		"Оценка производительности", 
 		"/ex2/time_control/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Комплексный компонент", 
+		"/ex2/complexcomponent/", 
 		Array(), 
 		Array(), 
 		"" 
