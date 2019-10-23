@@ -56,5 +56,5 @@ function CheckUserCount()
 
 	}
 
-	return "AgentChekUsers();";
+	return "CheckUserCount();";
 }

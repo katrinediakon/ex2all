@@ -16,7 +16,7 @@
   <component name="ProjectId" id="1SXvXIWnn5LEV0aahMAbei7CezB" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MebelVIA" />
+    <property name="last_opened_file_path" value="$USER_HOME$/MebelVIA" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,6 +49,7 @@
       <updated>1571722792177</updated>
       <workItem from="1571722793526" duration="5226000" />
       <workItem from="1571822614432" duration="2280000" />
+      <workItem from="1571829045178" duration="797000" />
     </task>
     <servers />
   </component>
