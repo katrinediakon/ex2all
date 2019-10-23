@@ -27,11 +27,11 @@ $arNavigation = CDBResult::GetNavParams($arNavParams);
 global $CACHE_MANAGER;
 
 if ($arParams["NEWS"] != "" && $arParams["KATALOG"] != "") {
-    $CACHE_MANAGER->RegisterTag("iblock_id_" . $arParams["KATALOG"]);
-    $CACHE_MANAGER->RegisterTag("iblock_id_" . $arParams["NEWS"]);
+
     if ($this->StartResultCache(false, array($arNavigation, $_GET["F"]))) {
         echo(time());
-
+        $CACHE_MANAGER->RegisterTag("iblock_id_" . $arParams["KATALOG"]);
+        $CACHE_MANAGER->RegisterTag("iblock_id_" . $arParams["NEWS"]);
         if (!Loader::includeModule("iblock")) {
             ShowError(GetMessage("SIMPLECOMP_EXAM2_IBLOCK_MODULE_NONE"));
             return;
