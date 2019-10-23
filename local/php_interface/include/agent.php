@@ -1,6 +1,6 @@
 <?
 
-function AgentChekUsers()
+function CheckUserCount()
 {
 
  global $DB;
